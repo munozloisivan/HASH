@@ -6,11 +6,12 @@ import java.util.List;
 /**
  * Created by ivanm on 21/02/2017.
  */
-public class ListaEtakemon {
+public class Interaccion {
 
     public List<Eetakemon> lista = new ArrayList<Eetakemon>();
 
     public Eetakemon resultado;
+    public Eetakemon resultado2;
 
     public void añadirEetakemon(Eetakemon e){
         lista.add(e);
@@ -34,5 +35,16 @@ public class ListaEtakemon {
             }
         }
         return resultado;
+    }
+
+    //BOLA EXTRA
+    //Implementar una búsqueda adicional que no busque por nombre exacto sino por aproximado
+    public Eetakemon searchApproach(String aprox){
+        for (int i=0; i<lista.size(); i++){
+            if (lista.get(i).getNombre().contains(aprox)){
+                resultado2 = lista.get(i);
+            }
+        }
+        return resultado2;
     }
 }
