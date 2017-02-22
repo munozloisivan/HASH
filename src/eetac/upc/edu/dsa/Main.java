@@ -72,11 +72,12 @@ public class Main {
                 case 5: //busqueda por aproximado
                     System.out.println("Introduce caracteres para la busqueda:");
                     String caracteres = br.readLine();
-                    List<Eetakemon> mostrar2 = milista.mostrarLista();
-                    if (mostrar2.size() == 0){
-                        System.out.println("Lista vacia");
+                    List<Eetakemon> mostrar2 = milista.searchApproach(caracteres);
+                     if (mostrar2.size() == 0){
+                       System.out.println("Lista vacia");
                     }
                     else{
+                         System.out.println("Eetakemons que contienen *"+caracteres+"* :");
                         for (int z=0; z < mostrar2.size(); z++){
                             if (mostrar2.get(z).getNombre().contains(caracteres)){
                                 System.out.println("Nombre: " + mostrar2.get(z).getNombre() + " || ID: " + mostrar2.get(z).getId() + " ||  Nivel: " + mostrar2.get(z).getNivel());

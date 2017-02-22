@@ -13,26 +13,26 @@ public class Interaccion {
     public Eetakemon resultado;
     public Eetakemon resultado2;
 
-    public void añadirEetakemon(Eetakemon e){
+    public void añadirEetakemon(Eetakemon e) {
         e.setId(id);
         lista.add(e);
         id++;
     }
 
     //Borrar eetakemon por indice
-    public void delEetakemon(int i){
+    public void delEetakemon(int i) {
         lista.remove(i);
     }
 
     //Listar Eetakemons
-    public List<Eetakemon> mostrarLista(){
+    public List<Eetakemon> mostrarLista() {
         return lista;
     }
 
     //Buscar eetakemon por nombre
-    public Eetakemon searchByName(String nombre){
-        for (int i=0; i<lista.size(); i++){
-            if (lista.get(i).getNombre().equals(nombre)){
+    public Eetakemon searchByName(String nombre) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombre().equals(nombre)) {
                 resultado = lista.get(i);
             }
         }
@@ -41,12 +41,16 @@ public class Interaccion {
 
     //BOLA EXTRA
     //Implementar una búsqueda adicional que no busque por nombre exacto sino por aproximado
-    public Eetakemon searchApproach(String aprox){
-        for (int i=0; i<lista.size(); i++){
-            if (lista.get(i).getNombre().contains(aprox)){
-                resultado2 = lista.get(i);
+    public List<Eetakemon> searchApproach(String aprox) {
+
+        List<Eetakemon> encontrado = new ArrayList<Eetakemon>();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNombre().contains(aprox)) {
+                encontrado.add(lista.get(i));
             }
         }
-        return resultado2;
+        return encontrado;
     }
+
 }
+
