@@ -12,7 +12,7 @@ public class Main {
         Interaccion milista = new Interaccion();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int idgenerado = 0;
+
         int i = 88;
         while (i != 0) {
 
@@ -34,16 +34,12 @@ public class Main {
             switch (i) {
                 case 1: //añadir eetakemon
                     try {
+                    Eetakemon nuevoEetakemon = new Eetakemon();
                         System.out.println("Introduce Nombre:");
-                        String nombreAdd = br.readLine();
-                        //System.out.println("Introduce id:");
-                        int idAdd = idgenerado++;
+                        nuevoEetakemon.setNombre(br.readLine());
                         System.out.println("Introduce nivel:");
-                        int nivelAdd = Integer.parseInt(br.readLine());
-
-                        Eetakemon eetakemonAdd = new Eetakemon(nombreAdd, idAdd, nivelAdd);
-
-                        milista.añadirEetakemon(eetakemonAdd);
+                        nuevoEetakemon.setNivel(Integer.parseInt(br.readLine()));
+                        milista.añadirEetakemon(nuevoEetakemon);
                     } catch (IOException e) {
                         e.getMessage();
                     }
@@ -92,7 +88,6 @@ public class Main {
                     System.out.println("Adiós");
                     break;
             }
-
         }
     }
 }

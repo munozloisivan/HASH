@@ -8,6 +8,8 @@ public class Eetakemon {
     public int id;
     public int nivel;
 
+    public Eetakemon(){}
+
     public Eetakemon(String nombre, int id, int nivel) {
         this.nombre = nombre;
         this.id = id;

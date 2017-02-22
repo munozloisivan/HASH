@@ -9,12 +9,14 @@ import java.util.List;
 public class Interaccion {
 
     public List<Eetakemon> lista = new ArrayList<Eetakemon>();
-
+    int id = 0;
     public Eetakemon resultado;
     public Eetakemon resultado2;
 
     public void añadirEetakemon(Eetakemon e){
+        e.setId(id);
         lista.add(e);
+        id++;
     }
 
     //Borrar eetakemon por indice
