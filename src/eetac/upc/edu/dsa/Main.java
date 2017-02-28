@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Interaccion milista = new Interaccion();
+        Controlador milista = new Controlador();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

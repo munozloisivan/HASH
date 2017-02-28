@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by ivanm on 21/02/2017.
  */
-public class Interaccion {
+public class Controlador {
 
     public List<Eetakemon> lista = new ArrayList<Eetakemon>();
     int id = 0;
