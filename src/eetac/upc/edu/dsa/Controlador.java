@@ -36,15 +36,10 @@ public class Controlador {
     }
 
     //Buscar eetakemon por nombre
-  /*  public Eetakemon searchByName(String nombre) {
-        int idSearched = 0;
-        for (int i=0; i< hastableEtakemon.size(); i++){
-            if (hastableEtakemon.elements().getClass().getName().equals(nombre)){
-            }
-        }
-        return ;
+    public Eetakemon searchByName(int idS) {
+        return hastableEtakemon.get(idS);
     }
-    */
+
 
     //BOLA EXTRA
     //Implementar una búsqueda adicional que no busque por nombre exacto sino por aproximado
