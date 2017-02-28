@@ -3,6 +3,8 @@ package eetac.upc.edu.dsa;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 
 public class Main {
@@ -34,7 +36,7 @@ public class Main {
             switch (i) {
                 case 1: //añadir eetakemon
                     try {
-                    Eetakemon nuevoEetakemon = new Eetakemon();
+                        Eetakemon nuevoEetakemon = new Eetakemon();
                         System.out.println("Introduce Nombre:");
                         nuevoEetakemon.setNombre(br.readLine());
                         System.out.println("Introduce nivel:");
@@ -55,16 +57,24 @@ public class Main {
                     }
                     break;
                 case 3: //listar todos los eetakemons
-                        List<Eetakemon> mostrar = milista.mostrarLista();
-                        if (mostrar.size() == 0) {
-                            System.out.println("La lista esta vacia");
-                        } else {
-                            for (int x = 0; x < mostrar.size(); x++) {
-                                System.out.println("Nombre: " + mostrar.get(x).getNombre() + " || ID: " + mostrar.get(x).getId() + " || Nivel: " + mostrar.get(x).getNivel());
-                            }
+                    //use Collections.list() to convert an Enumeration to a List
+                    //http://stackoverflow.com/questions/5610822/convert-enumeration-to-a-set-list
+                    List<Eetakemon> list = Collections.list(milista.mostrarLista());
+                    if (list.size() == 0) {
+                        System.out.println("La lista esta vacia");
+                    } else {
+                        for (int x = 0; x < list.size(); x++) {
+                            System.out.println("Nombre: " + list.get(x).getNombre() + " || ID: " + list.get(x).getId() + " || Nivel: " + list.get(x).getNivel());
                         }
+                    }
                     break;
-                case 4: //buscar por nombre
+
+                case 0:
+                    System.out.println("Adiós");
+                    break;
+                        }
+
+           /*     case 4: //buscar por nombre
                     System.out.println("¿Cual quieres buscar?");
                     String nombreSearch = br.readLine();
                     System.out.println("Nombre: " + milista.searchByName(nombreSearch).getNombre()  + " || ID: " + milista.searchByName(nombreSearch).getId() + " || Nivel: " +milista.searchByName(nombreSearch).getNivel()+"\n");
@@ -85,10 +95,8 @@ public class Main {
                         }
                     }
                     break;
-                case 0:
-                    System.out.println("Adiós");
-                    break;
+                 */
+
             }
         }
     }
-}

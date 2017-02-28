@@ -5,14 +5,15 @@ package eetac.upc.edu.dsa;
  */
 public class Usuario {
     //usuario, correo , contraseña
-    public String user, password, mail;
+    public String user, password, mail, id;
 
     public Usuario(){}
 
-    public Usuario(String user, String password, String mail) {
+    public Usuario(String user, String password, String mail, String id) {
         this.user = user;
         this.password = password;
         this.mail = mail;
+        this.id = id;
     }
 
     public String getUser() {
@@ -37,6 +38,14 @@ public class Usuario {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
 
