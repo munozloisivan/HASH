@@ -71,20 +71,14 @@ public class Main {
 
                 case 4: //buscar por nombre
                     List<Eetakemon> list2 = Collections.list(milista.mostrarLista());
-                    int idSearch = 0;
                     System.out.println("¿Cual quieres buscar?");
                     String nombreSearch = br.readLine();
                     if (list2.size()==0){
                         System.out.println("Lista vacia");
                     }
                     else {
-                        for (int z=0; z<list2.size();z++){
-                            if (list2.get(z).getNombre().equals(nombreSearch)){
-                               idSearch = list2.get(z).getId();
-                            }
-                        }
+                        System.out.println("Nombre: " +milista.searchByName(nombreSearch).getNombre() +" ID: "+milista.searchByName(nombreSearch).getId()+" Nivel: "+milista.searchByName(nombreSearch).getNivel());
                     }
-                    System.out.println("Nombre: " +milista.searchByName(idSearch).getNombre()+" ID: "+milista.searchByName(idSearch).getId()+" Nivel: "+milista.searchByName(idSearch).getNivel());
                     break;
 
                 case 0:

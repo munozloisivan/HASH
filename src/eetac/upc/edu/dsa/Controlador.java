@@ -1,7 +1,9 @@
 package eetac.upc.edu.dsa;
 
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by ivanm on 21/02/2017.
@@ -36,7 +38,14 @@ public class Controlador {
     }
 
     //Buscar eetakemon por nombre
-    public Eetakemon searchByName(int idS) {
+    public Eetakemon searchByName(String nombre) {
+        int idS = 0;
+        List<Eetakemon> list2 = Collections.list(mostrarLista());
+        for (int i=0; i<list2.size();i++){
+            if (list2.get(i).getNombre().equals(nombre)){
+                idS = list2.get(i).getId();
+            }
+        }
         return hastableEtakemon.get(idS);
     }
 
