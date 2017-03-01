@@ -1,39 +1,34 @@
 package eetac.upc.edu.dsa;
 
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ivanm on 21/02/2017.
  */
 public class Controlador {
 
-    public Hashtable<Integer, Eetakemon> hastableEtakemon;
+    public Hashtable<Integer, Eetakemon> hashtableEtakemon;
 
     public Controlador(){
-        hastableEtakemon = new Hashtable();
+        hashtableEtakemon = new Hashtable();
     }
 
     int id = 0;
-    public Eetakemon resultado;
-    public Eetakemon resultado2;
 
     public void añadirEetakemon(Eetakemon e) {
         e.setId(id);
-        hastableEtakemon.put(id, e);
+        hashtableEtakemon.put(id, e);
         id++;
     }
 
     //Borrar eetakemon por indice
     public void delEetakemon(int i) {
-        hastableEtakemon.remove(id);
+        hashtableEtakemon.remove(id);
     }
 
     //Listar Eetakemons
     public Enumeration<Eetakemon> mostrarLista() {
-        Enumeration<Eetakemon> en = hastableEtakemon.elements();
+        Enumeration<Eetakemon> en = hashtableEtakemon.elements();
         return en;
     }
 
@@ -46,9 +41,20 @@ public class Controlador {
                 idS = list2.get(i).getId();
             }
         }
-        return hastableEtakemon.get(idS);
+        return hashtableEtakemon.get(idS);
     }
 
+
+    public List<Eetakemon> searchApproach(String aprox){
+       List<Eetakemon> list2 = Collections.list(mostrarLista());
+       List<Eetakemon> encontrado = new ArrayList<Eetakemon>();
+       for (int i=0; i<list2.size();i++){
+           if (list2.get(i).getNombre().contains(aprox)){
+                encontrado.add(list2.get(i));
+           }
+       }
+       return encontrado;
+    }
 
     //BOLA EXTRA
     //Implementar una búsqueda adicional que no busque por nombre exacto sino por aproximado
