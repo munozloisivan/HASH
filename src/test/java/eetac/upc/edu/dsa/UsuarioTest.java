@@ -1,8 +1,8 @@
 package eetac.upc.edu.dsa;
 
 import org.junit.Test;
-import java.util.Hashtable;
-
+import java.util.Collections;
+import java.util.List;
 import static org.junit.Assert.*;
 
 /**
@@ -43,5 +43,13 @@ public class UsuarioTest {
         assertEquals(2,testControl.searchUserApproach("an").size());
     }
 
-
+    @Test
+    public void testMostrarListaUsuarios(){
+        Usuario us = new Usuario("ivan","pass","ivan@mail.com",1);
+        testControl.añadirUsuario(us);
+        Usuario us2 = new Usuario("ivana","passa","ivana@mail.com",1);
+        testControl.añadirUsuario(us2);
+        List<Usuario> list = Collections.list(testControl.mostrarListaUsuarios());
+        assertTrue(list.size() == 2);
+    }
 }
