@@ -15,9 +15,7 @@ public class Usuario {
         this.id = id;
     }
 
-    public Usuario() {
-
-    }
+    public Usuario() { }
 
     public String getName() {
         return name;

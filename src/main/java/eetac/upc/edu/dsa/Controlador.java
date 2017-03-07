@@ -1,5 +1,6 @@
 package eetac.upc.edu.dsa;
 
+import javax.swing.undo.UndoableEditSupport;
 import java.util.*;
 
 /**
@@ -9,6 +10,7 @@ public class Controlador {
 
     public Hashtable<Integer, Eetakemon> hashtableEtakemon;
     public Hashtable<Integer, Usuario> hashtableUsuario;
+    //public Hashtable<Usuario, Eetakemon> hashtableUsuarioEetakemon;
 
     public Controlador(){
         hashtableEtakemon = new Hashtable();
@@ -17,6 +19,7 @@ public class Controlador {
 
     int idEetakemonGenerated = 0;
     int idUsuarioGenerated = 0;
+    int idEetakemonAdded = 0;
 
 
     //AÑADIR
@@ -30,6 +33,17 @@ public class Controlador {
         u.setId(idUsuarioGenerated);
         hashtableUsuario.put(idUsuarioGenerated,u);
         idUsuarioGenerated++;
+    }
+
+    public void añadirEetakemonUsuario(Eetakemon e, Usuario u) {
+        int idUser = 0;
+        List<Eetakemon> list = Collections.list(mostrarLista());
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getNombre().equals(u.getName())) {
+                idUser = list.get(i).getId();
+            }
+        }
+        u.etHash.put(idEetakemonAdded,e);
     }
 
     //Borrar eetakemon por indice
@@ -55,6 +69,14 @@ public class Controlador {
         Enumeration<Usuario> enUs = hashtableUsuario.elements();
         return enUs;
     }
+
+    public Enumeration<Eetakemon> mostrarListaEetakemonsUsuario(){
+        Usuario us = new Usuario();
+        Enumeration<Eetakemon> enEtUs = us.etHash.elements();
+        return enEtUs;
+    }
+
+
 
     //Buscar eetakemon por nombre
     public Eetakemon searchByName(String nombre) {

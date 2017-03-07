@@ -1,9 +1,11 @@
 package eetac.upc.edu.dsa;
 
+import java.util.Hashtable;
+
 /**
  * Created by ivanm on 21/02/2017.
  */
-public class Eetakemon {
+public class Eetakemon{
     public String nombre;
     public int id;
     public int nivel;
