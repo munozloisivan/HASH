@@ -1,5 +1,7 @@
 package eetac.upc.edu.dsa;
 
+import java.util.List;
+
 /**
  * Created by ivanm on 28/02/2017.
  */
@@ -7,12 +9,14 @@ public class Usuario {
     //usuario, correo , contraseña
     public String name, password, mail;
     private int id;
+    public List<Eetakemon> etList;
 
-    public Usuario(String name, String password, String mail, int id) {
+    public Usuario(String name, String password, String mail, int id, List<Eetakemon> etList) {
         this.name = name;
         this.password = password;
         this.mail = mail;
         this.id = id;
+        this.etList = etList;
     }
 
     public Usuario() { }
@@ -47,6 +51,14 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<Eetakemon> getEtList() {
+        return etList;
+    }
+
+    public void setEtList(List<Eetakemon> etList) {
+        this.etList = etList;
     }
 }
 

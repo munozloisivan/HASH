@@ -36,14 +36,9 @@ public class Controlador {
     }
 
     public void añadirEetakemonUsuario(Eetakemon e, Usuario u) {
-        int idUser = 0;
-        List<Eetakemon> list = Collections.list(mostrarLista());
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getNombre().equals(u.getName())) {
-                idUser = list.get(i).getId();
-            }
-        }
-        u.etHash.put(idEetakemonAdded,e);
+        e.setId(idEetakemonAdded); // id es el orden q se ha añadido al usuario
+        u.etList.add(e);
+        idEetakemonAdded++;
     }
 
     //Borrar eetakemon por indice
@@ -70,12 +65,17 @@ public class Controlador {
         return enUs;
     }
 
-    public Enumeration<Eetakemon> mostrarListaEetakemonsUsuario(){
-        Usuario us = new Usuario();
-        Enumeration<Eetakemon> enEtUs = us.etHash.elements();
-        return enEtUs;
+    public List<Eetakemon> mostrarEetakemonsUsuario(String nombre){
+        Enumeration<Usuario> enUs = hashtableUsuario.elements();
+        ArrayList<Usuario> list = Collections.list(enUs);
+        List<Eetakemon> listRet = new ArrayList<Eetakemon>();
+        for (int i=0; i<list.size(); i++){
+            if (list.get(i).getName().equals(nombre)){
+                listRet = list.get(i).getEtList();
+            }
+        }
+        return listRet;
     }
-
 
 
     //Buscar eetakemon por nombre

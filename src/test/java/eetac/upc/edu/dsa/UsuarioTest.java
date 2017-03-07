@@ -1,6 +1,8 @@
 package eetac.upc.edu.dsa;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import static org.junit.Assert.*;
@@ -12,7 +14,7 @@ public class UsuarioTest {
 
     Controlador testControl = new Controlador();
 
-    @Test
+/*    @Test
     public void testAddUserOK(){
         Usuario us = new Usuario("ivan","pass","ivan@mail.com",1);
         testControl.añadirUsuario(us);
@@ -51,5 +53,25 @@ public class UsuarioTest {
         testControl.añadirUsuario(us2);
         List<Usuario> list = Collections.list(testControl.mostrarListaUsuarios());
         assertTrue(list.size() == 2);
+    }*/
+
+    @Test
+    public void testAñadirEetakemonUsuario(){
+        List<Eetakemon> listEt = new ArrayList<Eetakemon>(); {}
+        Usuario us = new Usuario("ivan","pass","ivan@mail.com",1, listEt);
+        testControl.añadirUsuario(us);
+        us.etList.add(new Eetakemon("pikachu",1,2));
+        us.etList.add(new Eetakemon("raichu",2,3));
     }
+
+    @Test
+    public void testMostrarListaEetakemonsUsuario(){
+        List<Eetakemon> listEt = new ArrayList<Eetakemon>(); {}
+        Usuario us = new Usuario("ivansiko","passika","ivansiko@mail.com",1, listEt);
+        testControl.añadirUsuario(us);
+        us.etList.add(new Eetakemon("pikachusiko",1,2));
+        us.etList.add(new Eetakemon("raichusiko",2,3));
+        assertTrue(testControl.mostrarEetakemonsUsuario(us.getName()).size() == 2);
+    }
+
 }
